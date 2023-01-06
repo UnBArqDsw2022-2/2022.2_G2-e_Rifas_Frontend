@@ -4,7 +4,12 @@ import Form from "../components/form";
 const Home = () => {
   return (
     <div>
-      <Form />
+      <Form
+        onClickButton={() => {}}
+        title="Bem vindo de volta!"
+        subTitle="Entre com seus dados"
+        textButton="Entrar"
+      />
     </div>
   );
 };

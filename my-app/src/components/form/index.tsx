@@ -1,38 +1,81 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Navbar from "../navbar";
+import Link from "@mui/material/Link";
+import CustomButton from "../button";
+import CustomInput from "../input";
 
-const Form = () => {
+type props = {
+  onClickButton: () => void;
+  textButton: string;
+  title: string;
+  subTitle: string;
+  name?: string;
+};
+
+const Form = ({ title, subTitle, onClickButton, textButton, name }: props) => {
   return (
     <div>
-      <Navbar />
-      <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <Box bgcolor={"rgba(23, 114, 160, 0.4)"}>
-          <TextField
-            id="outlined-basic"
-            label="Entre com seu e-mail"
-            variant="outlined"
-            style={{
-              backgroundColor: "var(--c1-color)",
-            }}
-          />
-        </Box>
+      <Box width="50%" alignItems={"flex-end"}>
+        <Box display={"flex"} flexDirection={"column"} borderRight="1px solid">
+          <Box m={1}>
+            <h1
+              style={{
+                color: "var(--p7-color)",
+                fontFamily: "var(--font-title)",
+              }}
+            >
+              {title}
+            </h1>
 
-        <TextField
-          id="outlined-basic"
-          type="password"
-          autoComplete="current-password"
-          label="Standard"
-          variant="outlined"
-        />
+            <p
+              style={{
+                fontFamily: "var(--font-title)",
+                fontSize: "18px",
+                fontWeight: "bold",
+                color: "var(--p4-color)",
+              }}
+            >
+              <span style={{ color: "var(--s1-color)", fontSize: "24px" }}>
+                •{" "}
+              </span>
+              {subTitle}
+            </p>
+          </Box>
+          <Box
+            component="form"
+            m={1}
+            noValidate
+            autoComplete="off"
+            width={"520px"}
+          >
+            {name ? (
+              <CustomInput inputName="Nome" placeholder="Informe seu nome" />
+            ) : (
+              <></>
+            )}
+            <CustomInput
+              inputName="E-mail"
+              placeholder="Entre com seu e-mail"
+            />
+            <CustomInput inputName="Senha" placeholder="•••••••" />
+
+            <p style={{ textAlign: "right" }}>
+              <Link
+                fontSize="18px"
+                fontFamily="var(--font-text)"
+                href="#"
+                style={{ textDecoration: "none", color: "var(--p4-color)" }}
+              >
+                Esqueci minha senha
+              </Link>
+            </p>
+
+            <CustomButton
+              onClickButton={onClickButton}
+              textButton={textButton}
+            />
+          </Box>
+        </Box>
       </Box>
     </div>
   );
