@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import ToastyContext, { ToastyContextType } from "../context/ToastyContext";
+import Form from "../components/form";
 
 const Home = () => {
+  const { showToast } = useContext(ToastyContext) as ToastyContextType;
+
+  // const loginAction = () => {
+  //   showToast("Error Test", "error");
+  //   showToast("Info Test", "info");
+  // };
+
   return (
     <div>
-      <h1>Home</h1>
+      <Form
+      // onClickButton={() => {
+      //   loginAction();
+      // }}
+      // title="Bem vindo de volta!"
+      // subTitle="Entre com seus dados"
+      // textButton="Entrar"
+      />
     </div>
   );
 };
