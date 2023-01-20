@@ -9,12 +9,12 @@ const Register = () => {
   return (
     <div>
       <Form
-      // onClickButton={() => {
-      //   registerAction();
-      // }}
-      // title="Crie sua conta"
-      // subTitle="Informe seus dados"
-      // textButton="Cadastrar"
+        onClickButton={() => {
+          registerAction();
+        }}
+        title="Crie sua conta"
+        subTitle="Informe seus dados"
+        textButton="Cadastrar"
       />
     </div>
   );
