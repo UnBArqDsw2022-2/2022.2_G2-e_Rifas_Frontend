@@ -1,9 +1,21 @@
 import React from "react";
+import Form from "../components/form";
 
 const Register = () => {
+  const registerAction = () => {
+    console.log("Register action");
+  };
+
   return (
     <div>
-      <h1>Register</h1>
+      <Form
+        onClickButton={() => {
+          registerAction();
+        }}
+        title="Crie sua conta"
+        subTitle="Informe seus dados"
+        textButton="Cadastrar"
+      />
     </div>
   );
 };
