@@ -1,9 +1,15 @@
 import React from "react";
+import Form from "../components/form";
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Form
+        onClickButton={() => {}}
+        title="Bem vindo de volta!"
+        subTitle="Entre com seus dados"
+        textButton="Entrar"
+      />
     </div>
   );
 };
