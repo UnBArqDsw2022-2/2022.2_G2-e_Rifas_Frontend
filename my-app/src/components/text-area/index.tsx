@@ -4,11 +4,9 @@ import TextField from "@mui/material/TextField";
 
 type props = {
   inputName: string;
-  placeholder?: string;
-  type?: string;
 };
 
-const CustomInput = ({ inputName, placeholder, type='text'}: props) => {
+const CustomTextArea = ({ inputName }: props) => {
   return (
     <>
       <p
@@ -21,20 +19,20 @@ const CustomInput = ({ inputName, placeholder, type='text'}: props) => {
       >
         {inputName}
       </p>
-      <Box bgcolor={"rgba(23, 114, 160, 0.4)"} width={"520px"}>
-        <TextField
-          fullWidth
-          id="outlined-basic"
-          placeholder={placeholder}
-          variant="outlined"
-          sx={{
-            borderRadius: "8px",
+      <Box width={"520px"}>
+        <textarea
+          style={{
+            resize: 'none',
+            width: '96.51%',
+            height: '172px',
+            borderRadius: '8px',
+            backgroundColor: 'rgba(23, 114, 160, 0.4)',
+            padding: '8px'
           }}
-          type = {type}
         />
       </Box>
     </>
   );
 };
 
-export default CustomInput;
+export default CustomTextArea;

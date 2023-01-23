@@ -6,6 +6,7 @@ import { ToastyProvider } from "./context/ToastyContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import CriarCampanha from "./pages/CriarCampanha";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="criar-campanha" element={<CriarCampanha />} />
           </Routes>
         </BrowserRouter>
       </ToastyProvider>
