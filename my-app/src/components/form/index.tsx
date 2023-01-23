@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import CustomButton from "../button";
 import CustomInput from "../input";
+import Title from "../title";
 
 type props = {
   onClickButton: () => void;
@@ -15,32 +16,9 @@ type props = {
 const Form = ({ title, subTitle, onClickButton, textButton, name }: props) => {
   return (
     <div>
+      <Title title={title} subTitle={subTitle}></Title>
       <Box width="50%" alignItems={"flex-end"}>
         <Box display={"flex"} flexDirection={"column"} borderRight="1px solid">
-          <Box m={1}>
-            <h1
-              style={{
-                color: "var(--p7-color)",
-                fontFamily: "var(--font-title)",
-              }}
-            >
-              {title}
-            </h1>
-
-            <p
-              style={{
-                fontFamily: "var(--font-title)",
-                fontSize: "18px",
-                fontWeight: "bold",
-                color: "var(--p4-color)",
-              }}
-            >
-              <span style={{ color: "var(--s1-color)", fontSize: "24px" }}>
-                •{" "}
-              </span>
-              {subTitle}
-            </p>
-          </Box>
           <Box
             component="form"
             m={1}
