@@ -77,7 +77,7 @@ const FormCriarCampanha = ({ title, onClickButton, textButton }: props) => {
                           style={{
                             width: '150px',
                           }}
-                          onClickButton={onClickButton}
+                          onClickButton={()=>console.log(images)}
                           textButton={textButton}
                       />
                     </Box>
