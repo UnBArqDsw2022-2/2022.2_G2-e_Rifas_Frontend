@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 import CustomButton from "../button";
 import CustomInput from "../input";
 import Title from "../title";
 import CustomTextArea from "../text-area";
-import { TextField } from "@mui/material";
+import CustomSelect from "../select";
 
 type props = {
   onClickButton: () => void;
@@ -15,6 +14,17 @@ type props = {
 };
 
 const FormCriarCampanha = ({ title, onClickButton, textButton }: props) => {
+
+  const options = [
+    { value: 'acessorios', label: 'Acessórios' },
+    { value: 'roupas', label: 'Roupas' },
+    { value: 'eletronicos', label: 'Eletrônicos' },
+    { value: 'brinquedos', label: 'Brinquedos' },
+    { value: 'saude', label: 'Saúde e Beleza' },
+    { value: 'ferramentas', label: 'Ferramentas' },
+    { value: 'decoracao', label: 'Decoração' },
+    { value: 'animais', label: 'Produtos para animais' },
+  ]
 
   const [images, setImages] = useState([])
 
@@ -37,7 +47,7 @@ const FormCriarCampanha = ({ title, onClickButton, textButton }: props) => {
                   >
                     <CustomInput inputName="Nome da Rifa" />
                     <CustomInput inputName="Quantidade de Bilhetes" type="number" />
-                    <CustomInput inputName="Categoria da Rifa" />
+                    <CustomSelect inputName="Categoria da Rifa" options={options}/>
                     <CustomInput inputName="Preço do Bilhete" type="tel" />
                   
                   </Box>
