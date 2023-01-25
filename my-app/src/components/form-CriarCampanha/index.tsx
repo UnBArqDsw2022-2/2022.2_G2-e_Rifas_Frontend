@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import CustomButton from "../button";
 import CustomInput from "../input";
 import Title from "../title";
 import CustomTextArea from "../text-area";
+import { TextField } from "@mui/material";
 
 type props = {
   onClickButton: () => void;
@@ -14,6 +15,13 @@ type props = {
 };
 
 const FormCriarCampanha = ({ title, onClickButton, textButton }: props) => {
+
+  const [images, setImages] = useState([])
+
+  const handleImageChange = (event:any) => {
+    setImages(event.target.file)
+  }
+
   return (
     <div>
         <Title title={title}></Title>
@@ -45,7 +53,11 @@ const FormCriarCampanha = ({ title, onClickButton, textButton }: props) => {
                         width={"520px"}
                     >
                     <CustomInput inputName="Telefone para Suporte" type="tel"/>
-                    <CustomInput inputName="Imagens" type="file" />
+                    <CustomInput 
+                      inputName="Imagens" 
+                      type="file" 
+                      onChange={handleImageChange}
+                      multiple={true}/>
                     <CustomTextArea inputName="Descrição" />
                     <Box width="100%" marginTop={2} style={{
                       display: 'flex',

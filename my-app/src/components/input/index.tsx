@@ -1,14 +1,17 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
 
 type props = {
+  onChange?: (event:any) => void;
   inputName: string;
   placeholder?: string;
   type?: string;
+  multiple?: boolean;
 };
 
-const CustomInput = ({ inputName, placeholder, type='text'}: props) => {
+const CustomInput = ({ onChange, inputName, placeholder, type='text', multiple=false}: props) => {
   return (
     <>
       <p
@@ -31,6 +34,8 @@ const CustomInput = ({ inputName, placeholder, type='text'}: props) => {
             borderRadius: "8px",
           }}
           type = {type}
+          inputProps={{multiple: multiple}}
+          onChange={onChange}
         />
       </Box>
     </>
