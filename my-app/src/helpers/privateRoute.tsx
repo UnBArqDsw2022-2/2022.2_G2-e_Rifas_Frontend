@@ -1,12 +1,14 @@
-import { useKeycloak } from '@react-keycloak/web'
-import { ReactJSXElement } from '@emotion/react/types/jsx-namespace'
+import Navbar from '../components/navbar'
+import { useKeycloak, ReactKeycloakProvider } from '@react-keycloak/web'
+import { Navigate, Outlet } from 'react-router-dom'
+import Home from '../pages/Home'
 
-const PrivateRoute = ({ children }: { children: ReactJSXElement }) => {
-  const { keycloak } = useKeycloak()
+const PrivateRoute = () => {
+  const { keycloak, initialized } = useKeycloak()
 
   const isLoggedIn = keycloak.authenticated
 
-  return isLoggedIn ? children : null
+  return isLoggedIn ? <Outlet /> : <Home />
 }
 
 export default PrivateRoute
