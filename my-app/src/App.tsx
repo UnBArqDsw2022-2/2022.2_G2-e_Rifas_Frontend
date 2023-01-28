@@ -12,6 +12,7 @@ import { ReactKeycloakProvider } from '@react-keycloak/web'
 import Navbar from './components/navbar/Navbar2'
 import Layout from './components/Layout'
 import Loading from './components/Loading'
+import RifaValidation from './components/RifaValidation'
 
 function App() {
   return (
@@ -25,7 +26,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route path="" element={<Home />} />
-                <Route path="login" element={<Login />} />
+                <Route element={<PrivateRoute />}>
+                  <Route path="rifa/validate" element={<RifaValidation />} />
+                </Route>
               </Route>
             </Routes>
           </BrowserRouter>
