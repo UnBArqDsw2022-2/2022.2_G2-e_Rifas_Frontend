@@ -7,6 +7,7 @@ import keycloak from './config/keycloak'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import CriarCampanha from "./pages/CriarCampanha";
 import PrivateRoute from './helpers/privateRoute'
 import { ReactKeycloakProvider } from '@react-keycloak/web'
 import Navbar from './components/navbar/Navbar2'
@@ -26,6 +27,7 @@ function App() {
               <Route path="/" element={<Layout />}>
                 <Route path="" element={<Home />} />
                 <Route path="login" element={<Login />} />
+                <Route path="criar-campanha" element={<CriarCampanha />} />
               </Route>
             </Routes>
           </BrowserRouter>

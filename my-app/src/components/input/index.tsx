@@ -3,11 +3,15 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
 type props = {
+  onChange?: (event:any) => void;
   inputName: string;
-  placeholder: string;
+  inputValue?: any;
+  placeholder?: string;
+  type?: string;
+  multiple?: boolean;
 };
 
-const CustomInput = ({ inputName, placeholder }: props) => {
+const CustomInput = ({ onChange, inputName, inputValue, placeholder, type='text', multiple=false}: props) => {
   return (
     <>
       <p
@@ -29,6 +33,10 @@ const CustomInput = ({ inputName, placeholder }: props) => {
           sx={{
             borderRadius: "8px",
           }}
+          type = {type}
+          value = {inputValue}
+          inputProps={{multiple: multiple}}
+          onChange={onChange}
         />
       </Box>
     </>

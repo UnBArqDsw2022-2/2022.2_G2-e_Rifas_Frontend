@@ -4,9 +4,10 @@ import Button from "@mui/material/Button";
 type props = {
   onClickButton: () => void;
   textButton: string;
+  style?: {}
 };
 
-const CustomButton = ({ onClickButton, textButton }: props) => {
+const CustomButton = ({ onClickButton, textButton, style }: props) => {
   return (
     <Button
       variant="contained"
@@ -21,6 +22,7 @@ const CustomButton = ({ onClickButton, textButton }: props) => {
       }}
       onClick={onClickButton}
       size="large"
+      style={style}
     >
       {textButton}
     </Button>
