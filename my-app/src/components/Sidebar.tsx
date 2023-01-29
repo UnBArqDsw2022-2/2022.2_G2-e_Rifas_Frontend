@@ -19,10 +19,25 @@ import ListItemText from '@mui/material/ListItemText'
 import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
 import LogoutIcon from '@mui/icons-material/Logout'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom'
 import keycloak from '../config/keycloak'
 
 const drawerWidth = 240
+
+const pages = [
+  {
+    nome: 'Home',
+    route: '/',
+    icon: HomeIcon,
+  },
+  {
+    nome: 'Criar Campanha',
+    route: '/criar-campanha',
+    icon: AddCircleOutlineIcon,
+  },
+]
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -143,26 +158,28 @@ export default function MiniDrawer({
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+          {pages.map((page, index) => (
+            <ListItem key={page.nome} disablePadding sx={{ display: 'block' }}>
+              <Link to={page.route}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <page.icon />
+                  </ListItemIcon>
+                  <ListItemText primary={page.nome} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </Link>
             </ListItem>
           ))}
         </List>
