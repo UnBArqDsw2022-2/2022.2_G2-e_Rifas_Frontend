@@ -3,9 +3,11 @@ import Box from "@mui/material/Box";
 
 type props = {
   inputName: string;
+  inputValue: string;
+  onChange?: (event:any) => void;
 };
 
-const CustomTextArea = ({ inputName }: props) => {
+const CustomTextArea = ({ inputName, inputValue, onChange }: props) => {
   return (
     <>
       <p
@@ -20,6 +22,8 @@ const CustomTextArea = ({ inputName }: props) => {
       </p>
       <Box width={"520px"}>
         <textarea
+          value={inputValue}
+          onChange={onChange}
           style={{
             resize: 'none',
             width: '96.51%',

@@ -5,12 +5,13 @@ import TextField from "@mui/material/TextField";
 type props = {
   onChange?: (event:any) => void;
   inputName: string;
+  inputValue?: any;
   placeholder?: string;
   type?: string;
   multiple?: boolean;
 };
 
-const CustomInput = ({ onChange, inputName, placeholder, type='text', multiple=false}: props) => {
+const CustomInput = ({ onChange, inputName, inputValue, placeholder, type='text', multiple=false}: props) => {
   return (
     <>
       <p
@@ -33,6 +34,7 @@ const CustomInput = ({ onChange, inputName, placeholder, type='text', multiple=f
             borderRadius: "8px",
           }}
           type = {type}
+          value = {inputValue}
           inputProps={{multiple: multiple}}
           onChange={onChange}
         />

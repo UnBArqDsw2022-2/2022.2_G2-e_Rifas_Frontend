@@ -5,9 +5,10 @@ import CustomInput from "../input";
 import Title from "../title";
 import CustomTextArea from "../text-area";
 import CustomSelect from "../select";
+import Rifa from "../../api/models/rifa.model";
 
 type props = {
-  onClickButton: () => void;
+  onClickButton: (rifa: Rifa) => void;
   textButton: string;
   title: string;
   name?: string;
@@ -26,10 +27,24 @@ const FormCriarCampanha = ({ title, onClickButton, textButton }: props) => {
     { value: 'animais', label: 'Produtos para animais' },
   ]
 
-  const [images, setImages] = useState([])
+  const [images, setImages] = useState([]);
+  const [nome, setNome] = useState('');
+  const [maximoBilhetes, setMaximoBilhetes] = useState(0);
+  const [preco, setPreco] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [descricao, setDescricao] = useState('');
 
   const handleImageChange = (event:any) => {
     setImages(event.target.file)
+  }
+
+  const handleFormValues = () => {
+    onClickButton({
+      nome: nome,
+      maximoBilhetes: maximoBilhetes,
+      StatusRifa: "EM_ANALISE",
+      descricao: descricao
+    })
   }
 
   return (
@@ -45,10 +60,27 @@ const FormCriarCampanha = ({ title, onClickButton, textButton }: props) => {
                     autoComplete="off"
                     width={"520px"}
                   >
-                    <CustomInput inputName="Nome da Rifa" />
-                    <CustomInput inputName="Quantidade de Bilhetes" type="number" />
-                    <CustomSelect inputName="Categoria da Rifa" options={options}/>
-                    <CustomInput inputName="Preço do Bilhete" type="tel" />
+                    <CustomInput 
+                      inputValue={nome} 
+                      onChange={e => setNome(e.target.value)} 
+                      inputName="Nome da Rifa" 
+                    />
+                    <CustomInput 
+                      inputValue={maximoBilhetes}
+                      onChange={e => setMaximoBilhetes(e.target.value)}
+                      inputName="Quantidade de Bilhetes" 
+                      type="number" 
+                    />
+                    <CustomSelect 
+                      inputName="Categoria da Rifa" 
+                      options={options}
+                    />
+                    <CustomInput 
+                      inputValue={preco}
+                      onChange={e => setPreco(e.target.value)}
+                      inputName="Preço do Bilhete" 
+                      type="tel" 
+                    />
                   
                   </Box>
                 </Box>
@@ -62,13 +94,21 @@ const FormCriarCampanha = ({ title, onClickButton, textButton }: props) => {
                         autoComplete="off"
                         width={"520px"}
                     >
-                    <CustomInput inputName="Telefone para Suporte" type="tel"/>
+                    <CustomInput 
+                      inputValue={telefone}
+                      onChange={e => setTelefone(e.target.value)}
+                      inputName="Telefone para Suporte" 
+                      type="tel"/>
                     <CustomInput 
                       inputName="Imagens" 
                       type="file" 
                       onChange={handleImageChange}
                       multiple={true}/>
-                    <CustomTextArea inputName="Descrição" />
+                    <CustomTextArea 
+                      inputValue={descricao}
+                      onChange={e => setDescricao(e.target.value)}
+                      inputName="Descrição" 
+                    />
                     <Box width="100%" marginTop={2} style={{
                       display: 'flex',
                       justifyContent: 'flex-end'
@@ -77,7 +117,7 @@ const FormCriarCampanha = ({ title, onClickButton, textButton }: props) => {
                           style={{
                             width: '150px',
                           }}
-                          onClickButton={()=>console.log(images)}
+                          onClickButton={handleFormValues}
                           textButton={textButton}
                       />
                     </Box>
