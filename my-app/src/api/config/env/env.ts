@@ -3,5 +3,5 @@ export const endpoint = {
   //   baseURL: "https://localhost:8080",
 
   // Production
-  baseURL: "https://api.github.com/users/",
-};
+  baseURL: 'http://localhost:8080',
+}
