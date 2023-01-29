@@ -8,7 +8,7 @@ const CriarCampanha = () => {
     const rifaService = new RifaService();
 
     const criarAction = (rifa: Rifa) => {
-        console.log(rifa)
+        rifaService.criarRifa(rifa)
     };
 
     return (
