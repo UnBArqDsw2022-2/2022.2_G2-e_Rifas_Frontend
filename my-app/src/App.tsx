@@ -1,28 +1,40 @@
-import React from "react";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ToastyProvider } from "./context/ToastyContext";
+import React, { useEffect, useState } from 'react'
+import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ToastyProvider } from './context/ToastyContext'
+import keycloak from './config/keycloak'
 
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
 import CriarCampanha from "./pages/CriarCampanha";
+import PrivateRoute from './helpers/privateRoute'
+import { ReactKeycloakProvider } from '@react-keycloak/web'
+import Navbar from './components/navbar/Navbar2'
+import Layout from './components/Layout'
+import Loading from './components/Loading'
 
 function App() {
   return (
     <div className="App">
-      <ToastyProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-            <Route path="criar-campanha" element={<CriarCampanha />} />
-          </Routes>
-        </BrowserRouter>
-      </ToastyProvider>
+      <ReactKeycloakProvider
+        authClient={keycloak}
+        LoadingComponent={<Loading />}
+      >
+        <ToastyProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route path="" element={<Home />} />
+                <Route path="login" element={<Login />} />
+                <Route path="criar-campanha" element={<CriarCampanha />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </ToastyProvider>
+      </ReactKeycloakProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
