@@ -11,10 +11,10 @@ import {
   Button,
   Paper,
 } from '@mui/material'
-import Title from './title'
+import Title from '../components/title'
 import RifaService from '../api/services/rifa.service'
 import Rifa from '../api/models/rifa.model'
-import CustomButton from './button'
+import CustomButton from '../components/button'
 
 type Props = {}
 
