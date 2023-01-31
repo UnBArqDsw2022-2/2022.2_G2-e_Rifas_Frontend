@@ -22,6 +22,7 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 import HomeIcon from '@mui/icons-material/Home'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import ListAltIcon from '@mui/icons-material/ListAlt'
 import { Link } from 'react-router-dom'
 import keycloak from '../config/keycloak'
 
@@ -42,6 +43,11 @@ const pages = [
     nome: 'Comprar bilhete',
     route: '/buy',
     icon: ShoppingCartIcon,
+  },
+  {
+    nome: 'Rifas',
+    route: '/rifa/list',
+    icon: ListAltIcon,
   },
 ]
 
