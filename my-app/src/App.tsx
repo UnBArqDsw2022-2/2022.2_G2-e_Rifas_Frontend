@@ -5,6 +5,7 @@ import { ToastyProvider } from './context/ToastyContext'
 import keycloak from './config/keycloak'
 
 import Home from './pages/Home'
+import Buy from './pages/Buy'
 import CriarCampanha from './pages/CriarCampanha'
 import PrivateRoute from './helpers/privateRoute'
 import { ReactKeycloakProvider } from '@react-keycloak/web'
@@ -27,6 +28,7 @@ function App() {
                 <Route element={<PrivateRoute />}>
                   <Route path="rifa/validate" element={<RifaValidation />} />
                   <Route path="criar-campanha" element={<CriarCampanha />} />
+                  <Route path="buy" element={<Buy />} />
                 </Route>
               </Route>
             </Routes>

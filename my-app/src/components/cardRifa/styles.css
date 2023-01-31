@@ -1,0 +1,75 @@
+.raffle {
+    max-width: 856px;
+    max-height: 200px;
+    background-color: rgba(2, 66, 99, .4);
+    display: flex;
+    gap: 28px;
+    border-radius: 8px;
+}
+
+.container-circle {
+    position: relative;
+}
+
+.circle {
+    position: absolute;
+    content: '';
+    width: 24px;
+    height: 24px;
+    border-radius: 16px;
+    background-color: #fff;
+    top: calc(50% - 12px);
+    left: -12px;
+}
+
+/* .left-part {
+
+} */
+
+.conteinar-dotted {
+    position: relative;
+}
+
+.dotted {
+    position: absolute;
+    width: 0px;
+    height: calc(100% - 24px);
+    border: 2px dashed #024263;
+    top: 12px;
+}
+
+/* .rigth-part {
+
+} */
+
+.img {
+    border-radius: 12px;
+    width: 226px;
+    height: 112px;
+}
+
+.title {
+    font-family: var(--font-title);
+    color: var(--p5-color);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.description {
+    color: var(--p3-color);
+    font-family: var(--font-text);
+    font-size: 16px;
+    max-width: 480px;
+}
+
+.container-items {
+    display: flex;
+    justify-content: space-around;
+}
+
+.items {
+    color: var(--p6-color);
+    font-family: var(--font-text);
+    font-size: 18px;
+    font-weight: 600;
+}
