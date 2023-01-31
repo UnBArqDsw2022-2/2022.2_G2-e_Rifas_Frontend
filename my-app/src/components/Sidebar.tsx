@@ -19,8 +19,9 @@ import ListItemText from '@mui/material/ListItemText'
 import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
 import LogoutIcon from '@mui/icons-material/Logout'
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import HomeIcon from '@mui/icons-material/Home';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
+import HomeIcon from '@mui/icons-material/Home'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { Link } from 'react-router-dom'
 import keycloak from '../config/keycloak'
 
@@ -36,6 +37,11 @@ const pages = [
     nome: 'Criar Campanha',
     route: '/criar-campanha',
     icon: AddCircleOutlineIcon,
+  },
+  {
+    nome: 'Comprar bilhete',
+    route: '/buy',
+    icon: ShoppingCartIcon,
   },
 ]
 
@@ -177,7 +183,10 @@ export default function MiniDrawer({
                   >
                     <page.icon />
                   </ListItemIcon>
-                  <ListItemText primary={page.nome} sx={{ opacity: open ? 1 : 0 }} />
+                  <ListItemText
+                    primary={page.nome}
+                    sx={{ opacity: open ? 1 : 0 }}
+                  />
                 </ListItemButton>
               </Link>
             </ListItem>
