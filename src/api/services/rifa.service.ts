@@ -11,6 +11,26 @@ class RifaService {
     }
   }
 
+  async getAllRifas() {
+    try {
+      const response = await axios.get<Rifa[]>(`/rifa`)
+      console.log(response)
+      return response
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async getRifasAbertas() {
+    try {
+      const response = await axios.get<Rifa[]>(`/rifa/abertas`)
+      console.log(response)
+      return response
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   async getRifa(id: number) {
     try {
       const response = await axios.get<Rifa>(`/rifa/${id}`)
