@@ -15,6 +15,7 @@ import Title from '../components/title'
 import RifaService from '../api/services/rifa.service'
 import Rifa from '../api/models/rifa.model'
 import CustomButton from '../components/button'
+import { useParams } from 'react-router'
 
 type Props = {}
 
@@ -26,14 +27,17 @@ const possibleStatus = [
 ]
 
 const RifaValidation = (props: Props) => {
+  const { id } = useParams()
   const [rifa, setRifa] = useState<Rifa>()
   const [selectedStatus, setSelectedStatus] = useState('')
 
   async function getRifa() {
     const rifaService = new RifaService()
-    await rifaService.getRifa(1).then((res) => {
-      setRifa(res?.data)
-    })
+    if (id != undefined) {
+      await rifaService.getRifa(parseInt(id)).then((res) => {
+        setRifa(res?.data)
+      })
+    }
   }
 
   async function updateStatus() {
