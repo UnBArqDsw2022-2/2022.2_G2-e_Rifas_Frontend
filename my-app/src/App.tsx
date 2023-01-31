@@ -11,7 +11,7 @@ import PrivateRoute from './helpers/privateRoute'
 import { ReactKeycloakProvider } from '@react-keycloak/web'
 import Layout from './components/Layout'
 import Loading from './components/Loading'
-import RifaValidation from './components/RifaValidation'
+import RifaValidation from './pages/RifaValidation'
 
 function App() {
   return (
