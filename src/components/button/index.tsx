@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 
 type props = {
-  onClickButton: () => void;
+  onClickButton?: () => void;
   textButton: string;
   style?: {}
 };
